@@ -1,22 +1,12 @@
-const body = document.querySelector("body")
-
-// Function to add a new div with the given text to the page
-function renderProbability(text) {
-    const element = document.createElement("div");
-    element.textContent = text;
-    body.appendChild(element);
-}
-
-// Array representing dice rolls from 1 to 19 (20 is critical success)
-let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+import { renderProbability } from "../Function/Probability.js"
 
 let failCount = 0
 let successCount = 0
 let modifier = 1
 
-// Calculate failures and successes based on roll + modifier
-for (let number of numbers) {
-    if (number + modifier < 10) {
+// Calculate failures and successes based on roll + modifier from 1 to 19 (20 is a critical success)
+for (let i = 1; i <= 19; i++) {
+    if (i + modifier < 10) {
         failCount++;
     } else {
         successCount++;
